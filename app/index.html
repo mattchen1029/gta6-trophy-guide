@@ -3,23 +3,83 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>GTA VI Trophy Guide &amp; Tracker — 55 PS5 Trophies</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="masthead">
+  <div>
+    <h1>GTA VI Trophy Guide &amp; Tracker</h1>
+    <p class="tagline">Every one of the 55 PlayStation 5 trophies — official names, descriptions and grades, a guide in our own words with its sources, and a checklist that saves in your browser. Works fully offline.</p>
+  </div>
+  <div class="platinum-box" id="platinumBox" aria-label="Platinum progress">
+    <div class="platinum-label">Platinum: Vice Got a Price!</div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-text" id="progressText">0 of 55 earned</div>
+  </div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<section class="facts" aria-label="Trophy list facts">
+  <span><strong>55</strong> trophies</span>
+  <span><strong>1</strong> platinum · <strong>2</strong> gold · <strong>6</strong> silver · <strong>46</strong> bronze</span>
+  <span><strong>0</strong> online trophies — all single-player</span>
+  <span><strong>1</strong> possibly missable</span>
+  <span><strong>~200 h</strong> to platinum · <strong>4/10</strong> difficulty (PowerPyx)</span>
+  <span><strong>28</strong> hidden until earned</span>
+</section>
+
+<section class="controls" aria-label="Filters and progress tools">
+  <label class="search-label">Search <input id="searchInput" type="search" placeholder="Trophy, mission or keyword…" autocomplete="off"></label>
+  <label>Kind
+    <select id="kindFilter">
+      <option value="all">All kinds</option>
+      <option value="story">Story</option>
+      <option value="missable">Missable</option>
+      <option value="collectibles">Collectibles</option>
+      <option value="activities">Activities</option>
+      <option value="online">Online</option>
+    </select>
+  </label>
+  <label>Grade
+    <select id="gradeFilter">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="check"><input id="missableOnly" type="checkbox"> Missable only</label>
+  <label class="check"><input id="spoilerToggle" type="checkbox"> Hide story spoilers</label>
+  <button id="exportBtn" type="button">Export progress</button>
+  <label class="import-label">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+  <button id="resetBtn" type="button">Reset</button>
+  <button id="clearFiltersBtn" type="button">Clear filters</button>
+</section>
+
+<main class="layout">
+  <section class="list-col" aria-label="Trophy checklist">
+    <h2>Checklist <span id="resultCount" class="result-count"></span></h2>
+    <p class="hint">Tick a trophy when you earn it — it stays ticked in this browser. Click any trophy to read its guide beside the list.</p>
+    <ul id="trophyList" class="trophy-list"></ul>
+  </section>
+  <aside class="detail-col" aria-label="Selected trophy guide">
+    <div id="detailPanel" class="detail-panel"></div>
+  </aside>
+</main>
+
+<section class="roadmap" id="roadmap" aria-label="Roadmap to the platinum">
+  <h2>Roadmap to the Platinum</h2>
+  <p class="hint">Built from the official descriptions: which story chapters and missions, which collectibles and counts, in what order. One playthrough is enough; there is no mission replay, so keep a manual save at the start and end of every chapter (15 manual slots). Cheats switch trophies and saving off — keep them off.</p>
+  <ol id="roadmapList" class="roadmap-list"></ol>
+</section>
+
+<footer class="sources" id="sources">
+  <h2>Sources &amp; notes</h2>
+  <p>Official trophy names, descriptions and grades are shown as PlayStation publishes them. The guides are written for this page in its own words; each trophy's guide names the source its facts come from, and the links below open only if you follow them — this page fetches nothing itself. Five trophies (In The Beginning…, Capital Offense, Bad Luck, I Guess, The Truth Is Out There, Ten Pin) have no confirmed method yet as of 19 November 2026: their guides say so plainly instead of guessing. Unofficial fan guide, not affiliated with Rockstar Games.</p>
+  <ul id="sourceList" class="source-list"></ul>
+</footer>
+
 <script type="module" src="app.js"></script>
 </body>
 </html>
